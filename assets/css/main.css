@@ -1,4 +1,91 @@
-#radarCanvas {
-   border: 1px solid #000000;
-   width: 100%;
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #000;
+  margin: 0;
+}
+
+.radar-container {
+  position: relative;
+  width: 400px;
+  height: 400px;
+}
+
+.radar {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  background:
+    radial-gradient(circle, transparent 20%, #03CC00 20%, #03CC00 21%, transparent 21%),
+    radial-gradient(circle, transparent 40%, #03CC00 40%, #03CC00 41%, transparent 41%),
+    radial-gradient(circle, transparent 60%, #03CC00 60%, #03CC00 61%, transparent 61%),
+    radial-gradient(circle, transparent 80%, #03CC00 80%, #03CC00 81%, transparent 81%);
+}
+
+.radar::before,
+.radar::after {
+  content: '';
+  position: absolute;
+  background-color: #03CC00;
+}
+
+.radar::before {
+  width: 100%;
+  height: 2px;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.radar::after {
+  width: 2px;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.scanner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  background: rgba(3, 204, 0, 0.3);
+  clip-path: polygon(0% 0%, 100% 0%, 50% 50%);
+  transform-origin: 0% 0%;
+  animation: rotate 2s linear infinite;
+}
+
+.scanner::before,
+.scanner::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 2px;
+  background: #03CC00;
+  transform-origin: 0% 50%;
+}
+
+.scanner::before {
+  transform: rotate(5deg);
+}
+
+.scanner::after {
+  transform: rotate(-5deg);
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
