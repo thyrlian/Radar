@@ -1,3 +1,7 @@
+:root {
+  --radar-color: #03CC00;
+}
+
 body {
   display: flex;
   justify-content: center;
@@ -20,17 +24,17 @@ body {
   border-radius: 50%;
   overflow: hidden;
   background:
-    radial-gradient(circle, transparent 20%, #03CC00 20%, #03CC00 21%, transparent 21%),
-    radial-gradient(circle, transparent 40%, #03CC00 40%, #03CC00 41%, transparent 41%),
-    radial-gradient(circle, transparent 60%, #03CC00 60%, #03CC00 61%, transparent 61%),
-    radial-gradient(circle, transparent 80%, #03CC00 80%, #03CC00 81%, transparent 81%);
+    radial-gradient(circle, transparent 20%, var(--radar-color) 20%, var(--radar-color) 21%, transparent 21%),
+    radial-gradient(circle, transparent 40%, var(--radar-color) 40%, var(--radar-color) 41%, transparent 41%),
+    radial-gradient(circle, transparent 60%, var(--radar-color) 60%, var(--radar-color) 61%, transparent 61%),
+    radial-gradient(circle, transparent 80%, var(--radar-color) 80%, var(--radar-color) 81%, transparent 81%);
 }
 
 .radar::before,
 .radar::after {
   content: '';
   position: absolute;
-  background-color: #03CC00;
+  background-color: var(--radar-color);
 }
 
 .radar::before {
@@ -69,7 +73,7 @@ body {
   left: 50%;
   width: 100%;
   height: 2px;
-  background: #03CC00;
+  background: var(--radar-color);
   transform-origin: 0% 50%;
 }
 
