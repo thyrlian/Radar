@@ -93,3 +93,23 @@ body {
     transform: rotate(360deg);
   }
 }
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 0.2; /* Dim the blip */
+  }
+  50% {
+    opacity: 1; /* Brighten the blip */
+  }
+}
+
+/* Style for radar blips */
+.blip {
+  position: absolute;
+  width: 8px; /* Size of the blip */
+  height: 8px;
+  background-color: var(--radar-color);
+  border-radius: 50%;
+  box-shadow: 0 0 15px 10px rgba(3, 204, 0, 0.5); /* Glow effect */
+  animation: blink 1.5s infinite; /* Apply the blink animation */
+}
